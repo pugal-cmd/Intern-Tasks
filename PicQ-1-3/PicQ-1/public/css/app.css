@@ -1,0 +1,30 @@
+/* Minimal app CSS for Flashoot */
+
+body { padding-top: 1rem; }
+
+.site-logo { width: 48px; height: auto; display: inline-block; }
+.pill-logo { }
+
+/* Navbar shell */
+.nav-shell{
+	background: rgba(11,11,11,0.95);
+	box-shadow: 0 6px 30px rgba(107,33,232,0.12);
+}
+.logo-square{ width:48px; height:48px; background:rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; border-radius:8px }
+.brand-text{ font-weight:700; font-size:22px; background:linear-gradient(90deg,#d1bcff,#ff7ab6); -webkit-background-clip:text; -webkit-text-fill-color:transparent }
+.nav-links .nav-link{ color:#dcd6e8; padding:8px 6px; font-weight:600; transition:color .15s }
+.nav-links .nav-link:hover{ color:#fff }
+.nav-links .nav-link.active{ position:relative }
+.nav-links .nav-link.active::after{ content:''; position:absolute; left:0; right:0; bottom:-10px; height:3px; width:40%; margin:0 auto; border-radius:2px; background:linear-gradient(90deg,#d1bcff,#ff7ab6) }
+
+/* CTAs */
+.cta-plain{ color:#fff; font-weight:700 }
+.cta-primary{ padding:8px 18px; border-radius:9999px; background:linear-gradient(90deg,#7b2cff,#ff2ea1); color:#fff; font-weight:800; box-shadow:0 8px 30px rgba(123,44,255,0.18) }
+
+.nav-gradient{ position:absolute; left:6px; right:6px; bottom:-10px; height:18px; border-radius:24px; background:linear-gradient(90deg, rgba(107,33,232,0.25), rgba(255,122,182,0.18)); filter:blur(10px); }
+
+.nav-cta{ display:inline-block; padding:0.6rem 1rem; border-radius:9999px; background:linear-gradient(90deg,#6b21e8,#ff7ab6); color:#fff; font-weight:600; box-shadow:0 6px 18px rgba(107,33,232,0.18); }
+.nav-cta:hover{ opacity:0.95 }
+.nav-cta-outline{ background:transparent; color:var(--tw-color-on-surface, #e2e2e2); border:1px solid rgba(255,255,255,0.06); padding:0.55rem 0.95rem }
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: 'Inter', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #6d28d9, #9333ea, #c026d3); padding: 32px; text-align: center; }
+        .header h1 { color: white; margin: 0; font-size: 24px; font-weight: 800; }
+        .header p { color: rgba(255,255,255,0.8); margin: 8px 0 0; font-size: 14px; }
+        .body { padding: 32px; }
+        .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #9333ea; margin: 24px 0 12px; }
+        .row { display: flex; margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; }
+        .label { font-size: 13px; font-weight: 600; color: #666; width: 160px; flex-shrink: 0; }
+        .value { font-size: 13px; color: #333; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #f3e8ff; color: #7c3aed; font-size: 12px; font-weight: 700; }
+        .footer { background: #f9f9f9; padding: 20px 32px; text-align: center; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 New Vendor Registration</h1>
+            <p>A new vendor has applied to join PicQ</p>
+        </div>
+
+        <div class="body">
+            <p style="color:#555;font-size:14px;">A new vendor registration has been submitted. Here are the details:</p>
+
+            <div class="section-title">Personal Information</div>
+            <div class="row"><span class="label">Name</span><span class="value">{{ $vendor->name }}</span></div>
+            <div class="row"><span class="label">Email</span><span class="value">{{ $vendor->email }}</span></div>
+            <div class="row"><span class="label">Mobile</span><span class="value">{{ $vendor->mobile }}</span></div>
+            <div class="row"><span class="label">City</span><span class="value">{{ $vendor->city }}</span></div>
+
+            <div class="section-title">Business Information</div>
+            <div class="row"><span class="label">Business Name</span><span class="value">{{ $vendor->business_name }}</span></div>
+            <div class="row"><span class="label">Business Type</span><span class="value"><span class="badge">{{ $vendor->business_type }}</span></span></div>
+            <div class="row"><span class="label">Experience</span><span class="value">{{ $vendor->experience ?? 'Not specified' }}</span></div>
+            <div class="row"><span class="label">Equipment</span><span class="value">{{ $vendor->equipment ?? 'Not specified' }}</span></div>
+            <div class="row"><span class="label">Specialties</span><span class="value">{{ $vendor->specialties ?? 'Not specified' }}</span></div>
+
+            @if($vendor->portfolio_url)
+            <div class="row"><span class="label">Portfolio</span><span class="value"><a href="{{ $vendor->portfolio_url }}" style="color:#9333ea;">{{ $vendor->portfolio_url }}</a></span></div>
+            @endif
+
+            @if($vendor->instagram_url)
+            <div class="row"><span class="label">Instagram</span><span class="value">{{ $vendor->instagram_url }}</span></div>
+            @endif
+
+            @if($vendor->about)
+            <div class="section-title">About</div>
+            <p style="font-size:13px;color:#555;line-height:1.6;background:#f9f9f9;padding:16px;border-radius:8px;">{{ $vendor->about }}</p>
+            @endif
+
+            <div style="margin-top:24px;padding:16px;background:#f3e8ff;border-radius:12px;text-align:center;">
+                <p style="margin:0;font-size:13px;color:#7c3aed;font-weight:600;">Submitted on {{ $vendor->created_at->format('d M Y, h:i A') }}</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>This email was sent from PicQ Vendor Registration System</p>
+            <p style="margin:4px 0 0;">© {{ date('Y') }} PicQ. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
